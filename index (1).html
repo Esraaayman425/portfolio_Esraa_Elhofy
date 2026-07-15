@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Esraa Ayman | Portfolio</title>
+
+  <!-- Tailwind CSS -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Particles.js -->
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#020617',
+            ink: '#F8FAFC',
+            primary: '#0D9488',
+            accent: '#F59E0B'
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+
+    :root {
+      --bg: #020617;
+      --primary: #0D9488;
+      --accent: #F59E0B;
+      --ink: #F8FAFC;
+      --teal-light: #2DD4BF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #020617;
+
+      background-image:
+        radial-gradient(
+          circle at 12% 20%,
+          rgba(13, 148, 136, 0.16),
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 85% 15%,
+          rgba(245, 158, 11, 0.10),
+          transparent 38%
+        ),
+        radial-gradient(
+          circle at 50% 85%,
+          rgba(13, 148, 136, 0.10),
+          transparent 45%
+        );
+
+      background-attachment: fixed;
+      margin: 0;
+      color: #F8FAFC;
+    }
+
+    ::selection {
+      background: #0D9488;
+      color: #020617;
+    }
+
+    /* ================================
+       INTERACTIVE PARTICLES BACKGROUND
+    ================================= */
+
+    #particles-js {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #particles-js canvas {
+      position: absolute;
+      inset: 0;
+    }
+
+    /* ================================
+       GLASS UI
+    ================================= */
+
+    .glass {
+      background: rgba(248, 250, 252, 0.04);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      border: 1px solid rgba(248, 250, 252, 0.09);
+
+      border-radius: 1rem;
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .glass:hover {
+      transform: translateY(-5px);
+
+      border-color: rgba(13, 148, 136, 0.45);
+
+      background: rgba(248, 250, 252, 0.06);
+
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ================================
+       TEXT
+    ================================= */
+
+    .primary-text {
+      color: #0D9488;
+    }
+
+    .accent-text {
+      color: #F59E0B;
+    }
+
+    /* ================================
+       NAVIGATION
+    ================================= */
+
+    .nav-link {
+      position: relative;
+      color: #F8FAFC;
+      transition: color 0.25s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+
+      position: absolute;
+
+      left: 0;
+      bottom: -5px;
+
+      width: 0;
+      height: 2px;
+
+      background: #F59E0B;
+
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #F59E0B;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* ================================
+       BUTTONS
+    ================================= */
+
+    .btn-primary {
+      background: #0D9488;
+      color: #F8FAFC;
+
+      transition: all 0.25s ease;
+
+      box-shadow: 0 8px 20px -10px rgba(13, 148, 136, 0.7);
+    }
+
+    .btn-primary:hover {
+      background: #14B8A6;
+
+      transform: translateY(-3px);
+
+      box-shadow: 0 12px 30px -10px rgba(13, 148, 136, 0.9);
+    }
+
+    .btn-ghost {
+      border: 1.5px solid rgba(248, 250, 252, 0.25);
+
+      color: #F8FAFC;
+
+      transition: all 0.25s ease;
+    }
+
+    .btn-ghost:hover {
+      border-color: #F59E0B;
+
+      color: #F59E0B;
+
+      transform: translateY(-3px);
+
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.12);
+    }
+
+    /* ================================
+       BADGES
+    ================================= */
+
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+
+      font-size: 0.72rem;
+
+      padding: 0.35rem 0.7rem;
+
+      border-radius: 0.5rem;
+
+      background: rgba(13, 148, 136, 0.12);
+
+      color: #2DD4BF;
+
+      border: 1px solid rgba(13, 148, 136, 0.35);
+
+      white-space: nowrap;
+
+      transition: all 0.25s ease;
+    }
+
+    .badge:hover {
+      background: rgba(13, 148, 136, 0.25);
+
+      border-color: #2DD4BF;
+
+      transform: translateY(-2px);
+    }
+
+    /* ================================
+       EYEBROW
+    ================================= */
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+
+      font-size: 0.7rem;
+
+      letter-spacing: 0.14em;
+
+      text-transform: uppercase;
+
+      color: #F59E0B;
+    }
+
+    /* ================================
+       PROFILE RING
+    ================================= */
+
+    .profile-ring {
+      background: conic-gradient(
+        from 180deg,
+        #0D9488,
+        #F59E0B,
+        #0D9488
+      );
+
+      padding: 4px;
+
+      border-radius: 9999px;
+
+      animation: rotateRing 8s linear infinite;
+    }
+
+    @keyframes rotateRing {
+
+      from {
+        filter: hue-rotate(0deg);
+      }
+
+      to {
+        filter: hue-rotate(360deg);
+      }
+
+    }
+
+    /* ================================
+       SCROLL REVEAL
+    ================================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(35px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+    /* ================================
+       PROJECT CARDS
+    ================================= */
+
+    .project-card {
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.01);
+    }
+
+    /* ================================
+       MOBILE MENU
+    ================================= */
+
+    #mobileMenu {
+      transition: all 0.35s ease;
+    }
+
+    /* ================================
+       MODAL
+    ================================= */
+
+    .modal {
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition: all 0.3s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+    .modal-content {
+      transform: translateY(25px) scale(0.96);
+
+      transition: all 0.3s ease;
+    }
+
+    .modal.active .modal-content {
+      transform: translateY(0) scale(1);
+    }
+
+  </style>
+
+</head>
+
+<body class="font-body text-ink antialiased relative">
+
+  <!-- =========================================
+       INTERACTIVE BACKGROUND
+  ========================================== -->
+
+  <div id="particles-js"></div>
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
+  <header class="fixed top-0 left-0 w-full z-50 glass !rounded-none border-x-0 border-t-0">
+
+```
+<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+  <a href="#hero" class="flex items-center gap-3">
+
+    <img
+      src="3.png"
+      alt="Esraa Ayman logo"
+     class="h-9 w-9 rounded-md object-contain scale-[3]"
+    >
+
+    
+
+  </a>
+
+
+  <nav class="hidden lg:flex items-center gap-8 text-sm font-medium font-mono">
+
+    <a href="#about" class="nav-link">About</a>
+
+    <a href="#usp" class="nav-link">USP</a>
+
+    <a href="#skills" class="nav-link">Skills</a>
+
+    <a href="#projects" class="nav-link">Projects</a>
+
+    <a href="#training" class="nav-link">Training</a>
+
+    <a href="#experience" class="nav-link">Experience</a>
+
+    <a href="#workflow" class="nav-link">Workflow</a>
+
+    <a href="#contact" class="nav-link">Contact</a>
+
+  </nav>
+
+
+  <a
+    href="#contact"
+    class="btn-primary hidden sm:inline-block text-sm font-semibold px-5 py-2 rounded-lg"
+  >
+    Let's Talk
+  </a>
+
+
+  <button
+    id="menuBtn"
+    class="lg:hidden text-slate-200"
+    aria-label="Open menu"
+  >
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-7 w-7"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"
+      />
+
+    </svg>
+
+  </button>
+
+</div>
+
+
+<div
+  id="mobileMenu"
+  class="hidden lg:hidden glass !rounded-none border-x-0 border-b-0 px-6 pb-6 pt-2 flex flex-col gap-4 font-mono text-sm"
+>
+
+  <a href="#about" class="nav-link">About</a>
+
+  <a href="#usp" class="nav-link">USP</a>
+
+  <a href="#skills" class="nav-link">Skills</a>
+
+  <a href="#projects" class="nav-link">Projects</a>
+
+  <a href="#training" class="nav-link">Training</a>
+
+  <a href="#experience" class="nav-link">Experience</a>
+
+  <a href="#workflow" class="nav-link">Workflow</a>
+
+  <a href="#contact" class="nav-link">Contact</a>
+
+</div>
+```
+
+  </header>
+
+  <!-- =========================================
+       MAIN
+  ========================================== -->
+
+  <main class="relative z-10">
+
+```
+<!-- =========================================
+     HERO
+========================================== -->
+
+<section
+  id="hero"
+  class="max-w-7xl mx-auto px-6 pt-40 pb-24 grid lg:grid-cols-5 gap-12 items-center"
+>
+
+  <div class="lg:col-span-3 order-2 lg:order-1 reveal">
+
+    
+
+
+    <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
+
+      Esraa <span class="primary-text">Ayman</span>
+
+    </h1>
+
+
+    <h2 class="text-xl sm:text-2xl font-display font-medium text-slate-300 mb-6">
+
+      Data Analyst
+      <span class="accent-text">|</span>
+      Machine Learning
+
+    </h2>
+
+
+    <p class="text-slate-400 leading-relaxed max-w-xl mb-8">
+
+      I help individuals and businesses transform ideas into smart digital solutions through data analysis, AI-powered applications, modern web development, and creative digital experiences.
+
+    </p>
+
+
+    <div class="flex flex-wrap gap-4">
+
+      <a
+        href="#projects"
+        class="btn-primary font-semibold px-6 py-3 rounded-lg text-sm"
+      >
+        View Projects
+      </a>
+
+
+      <a
+        href="#contact"
+        class="btn-ghost font-semibold px-6 py-3 rounded-lg text-sm"
+      >
+        Contact Me
+      </a>
+
+
+      <a
+        href="https://github.com/Esraaayman425"
+        target="_blank"
+        rel="noopener"
+        class="btn-ghost font-semibold px-6 py-3 rounded-lg text-sm"
+      >
+        GitHub
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center reveal">
+
+    <div class="profile-ring rounded-full h-56 w-56 sm:h-72 sm:w-72">
+
+      <img
+        src="22.jpg"
+        alt="Esraa Ayman profile picture"
+        class="rounded-full h-full w-full object-cover bg-slate-800"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     ABOUT
+========================================== -->
+
+<section
+  id="about"
+  class="max-w-7xl mx-auto px-6 py-24 scroll-mt-24 reveal"
+>
+
+
+  <h2 class="font-display text-3xl sm:text-4xl font-bold mb-12">
+    About Me
+  </h2>
+
+
+  <div class="grid md:grid-cols-2 gap-8">
+
+    <div class="glass p-8">
+
+      <h3 class="text-xl font-semibold mb-3 primary-text font-mono">
+        // background
+      </h3>
+
+
+      <p class="text-slate-400 leading-relaxed">
+
+        I am a Computer Science and Artificial Intelligence student with a strong interest in Data Analysis, Artificial Intelligence, and modern web development.
+
+      </p>
+
+    </div>
+
+
+    <div class="glass p-8">
+
+      <h3 class="text-xl font-semibold mb-3 primary-text font-mono">
+        // what I do
+      </h3>
+
+
+      <p class="text-slate-400 leading-relaxed">
+
+        I work on transforming raw data and ideas into meaningful insights, intelligent applications, and engaging digital experiences using modern technologies.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     USP
+========================================== -->
+
+<section
+  id="usp"
+  class="max-w-7xl mx-auto px-6 py-24 scroll-mt-24 reveal"
+>
+
+ 
+
+  <h2 class="font-display text-3xl sm:text-4xl font-bold mb-12">
+    USP
+  </h2>
+
+
+  <div class="glass p-10 grid md:grid-cols-2 gap-10 items-center">
+
+    <div>
+
+      <h3 class="font-display text-2xl font-semibold mb-4">
+
+        Engineering Mindset
+        <span class="accent-text">+</span>
+        Creative Thinking
+
+      </h3>
+
+
+      <p class="text-slate-400 leading-relaxed">
+
+        I combine technical problem-solving with creativity to build solutions that are not only functional, but also clear, engaging, and user-focused.
+
+      </p>
+
+    </div>
+
+
+    <div class="flex flex-col gap-4">
+
+      <div class="flex items-start gap-3">
+
+        <span class="h-2 w-2 mt-2 rounded-full bg-primary"></span>
+
+        <p class="text-slate-300">
+
+          Structured approach to solving technical and data problems.
+
+        </p>
+
+      </div>
+
+
+      <div class="flex items-start gap-3">
+
+        <span class="h-2 w-2 mt-2 rounded-full bg-accent"></span>
+
+        <p class="text-slate-300">
+
+          Ability to move between data, AI, web development, and creative tools.
+
+        </p>
+
+      </div>
+
+
+      <div class="flex items-start gap-3">
+
+        <span class="h-2 w-2 mt-2 rounded-full bg-primary"></span>
+
+        <p class="text-slate-300">
+
+          Focus on building practical solutions with real-world impact.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     SKILLS
+========================================== -->
+
+<section
+  id="skills"
+  class="max-w-7xl mx-auto px-6 py-24 scroll-mt-24 reveal"
+>
+
+
+  <h2 class="font-display text-3xl sm:text-4xl font-bold mb-12">
+    Skills & Tools
+  </h2>
+
+
+  <div class="grid md:grid-cols-2 gap-8">
+
+    <div class="glass p-8">
+
+      <h3 class="font-display text-xl font-semibold mb-6">
+        Data & AI
+      </h3>
+
+
+      <div class="flex flex-wrap gap-3">
+
+        <span class="badge">Python</span>
+
+        <span class="badge">SQL</span>
+
+        <span class="badge">Pandas</span>
+
+        <span class="badge">NumPy</span>
+
+        <span class="badge">Scikit-learn</span>
+
+        <span class="badge">Machine Learning</span>
+
+        <span class="badge">Data Analysis</span>
+
+        <span class="badge">Power BI</span>
+
+        <span class="badge">Excel</span>
+
+      </div>
+
+    </div>
+
+
+    <div class="glass p-8">
+
+      <h3 class="font-display text-xl font-semibold mb-6">
+        Development & Creative
+      </h3>
+
+
+      <div class="flex flex-wrap gap-3">
+
+        <span class="badge">HTML</span>
+
+        <span class="badge">CSS</span>
+
+        <span class="badge">JavaScript</span>
+
+        <span class="badge">Streamlit</span>
+
+        <span class="badge">GitHub</span>
+
+        <span class="badge">Canva</span>
+
+        <span class="badge">Photoshop</span>
+
+        <span class="badge">Video Editing</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     PROJECTS
+========================================== -->
+
+<section
+  id="projects"
+  class="max-w-7xl mx-auto px-6 py-24 scroll-mt-24 reveal"
+>
+
+
+  <h2 class="font-display text-3xl sm:text-4xl font-bold mb-12">
+    Projects
+  </h2>
+
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+    <div
+      class="glass project-card p-6 flex flex-col justify-between"
+      data-title="AtomGuard Twin"
+      data-description="Autonomous Digital Twin Inspection System for Nuclear Safety. The project combines sensors, AI decision support, predictive maintenance, and real-time monitoring."
+      data-tools="AI · Digital Twin · Predictive Maintenance"
+    >
+
+      <div>
+
+        <h4 class="font-display text-lg font-semibold mb-2">
+          AtomGuard Twin
+        </h4>
+
+
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+
+          Autonomous Digital Twin Inspection System for Nuclear Safety.
+
+        </p>
+
+
+        <div class="flex flex-wrap gap-2 mb-4">
+
+          <span class="badge">AI</span>
+
+          <span class="badge">Digital Twin</span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="btn-ghost details-btn text-sm font-semibold px-4 py-2 rounded-lg self-start"
+      >
+        Details
+      </button>
+
+    </div>
+
+
+    <div
+      class="glass project-card p-6 flex flex-col justify-between"
+      data-title="Code Wizards"
+      data-description="Educational 3D game designed to make programming concepts more engaging and interactive for young learners."
+      data-tools="Python · Game Development · Education"
+    >
+
+      <div>
+
+        <h4 class="font-display text-lg font-semibold mb-2">
+          Code Wizards
+        </h4>
+
+
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+
+          Educational 3D game designed to make programming concepts engaging.
+
+        </p>
+
+
+        <div class="flex flex-wrap gap-2 mb-4">
+
+          <span class="badge">Education</span>
+
+          <span class="badge">Game</span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="btn-ghost details-btn text-sm font-semibold px-4 py-2 rounded-lg self-start"
+      >
+        Details
+      </button>
+
+    </div>
+
+
+    <div
+      class="glass project-card p-6 flex flex-col justify-between"
+      data-title="From Zero to Hero"
+      data-description="Educational platform concept combining programming learning, AI assistance, and parental connection."
+      data-tools="Web Development · AI · Education"
+    >
+
+      <div>
+
+        <h4 class="font-display text-lg font-semibold mb-2">
+          From Zero to Hero
+        </h4>
+
+
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+
+          Educational platform combining programming learning and AI assistance.
+
+        </p>
+
+
+        <div class="flex flex-wrap gap-2 mb-4">
+
+          <span class="badge">Web</span>
+
+          <span class="badge">AI</span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="btn-ghost details-btn text-sm font-semibold px-4 py-2 rounded-lg self-start"
+      >
+        Details
+      </button>
+
+    </div>
+
+
+    <div
+      class="glass project-card p-6 flex flex-col justify-between"
+      data-title="PharmaFast"
+      data-description="Modern web application concept for pharmaceutical services with a clean frontend experience and backend integration."
+      data-tools="HTML · CSS · JavaScript · Node.js"
+    >
+
+      <div>
+
+        <h4 class="font-display text-lg font-semibold mb-2">
+          PharmaFast
+        </h4>
+
+
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+
+          Modern web application concept for pharmaceutical services.
+
+        </p>
+
+
+        <div class="flex flex-wrap gap-2 mb-4">
+
+          <span class="badge">Web</span>
+
+          <span class="badge">Node.js</span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="btn-ghost details-btn text-sm font-semibold px-4 py-2 rounded-lg self-start"
+      >
+        Details
+      </button>
+
+    </div>
+
+
+    <div
+      class="glass project-card p-6 flex flex-col justify-between"
+      data-title="Data Analysis Projects"
+      data-description="Practical data analysis projects focused on data cleaning, exploration, visualization, and extracting useful business insights."
+      data-tools="Python · Pandas · Power BI · Excel"
+    >
+
+      <div>
+
+        <h4 class="font-display text-lg font-semibold mb-2">
+          Data Analysis Projects
+        </h4>
+
+
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+
+          Data cleaning, exploration, visualization, and business insights.
+
+        </p>
+
+
+        <div class="flex flex-wrap gap-2 mb-4">
+
+          <span class="badge">Python</span>
+
+          <span class="badge">Power BI</span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="btn-ghost details-btn text-sm font-semibold px-4 py-2 rounded-lg self-start"
+      >
+        Details
+      </button>
+
+    </div>
+
+
+    <div
+      class="glass project-card p-6 flex flex-col justify-between"
+      data-title="AI Applications"
+      data-description="AI-powered applications and experiments using modern machine learning and AI tools to solve practical problems."
+      data-tools="Python · Machine Learning · AI"
+    >
+
+      <div>
+
+        <h4 class="font-display text-lg font-semibold mb-2">
+          AI Applications
+        </h4>
+
+
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+
+          AI-powered applications designed to solve practical problems.
+
+        </p>
+
+
+        <div class="flex flex-wrap gap-2 mb-4">
+
+          <span class="badge">AI</span>
+
+          <span class="badge">ML</span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="btn-ghost details-btn text-sm font-semibold px-4 py-2 rounded-lg self-start"
+      >
+        Details
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     TRAINING
+========================================== -->
+
+<section
+  id="training"
+  class="max-w-7xl mx-auto px-6 py-24 scroll-mt-24 reveal"
+>
+
+
+  <h2 class="font-display text-3xl sm:text-4xl font-bold mb-12">
+    Training & Education
+  </h2>
+
+
+  <div class="glass p-10 grid md:grid-cols-2 gap-10">
+
+    <div>
+
+      <h3 class="font-display text-xl font-semibold mb-2 primary-text">
+        NTI
+      </h3>
+
+
+      <p class="text-slate-400 leading-relaxed">
+
+        Data Analysis with Machine Learning track focused on practical analytics and machine learning skills.
+
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3 class="font-display text-xl font-semibold mb-2 primary-text">
+        DEPI
+      </h3>
+
+
+      <p class="text-slate-400 leading-relaxed">
+
+        Digital Egypt Pioneers Initiative focused on developing technical and professional skills.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     EXPERIENCE
+========================================== -->
+
+<section
+  id="experience"
+  class="max-w-7xl mx-auto px-6 py-24 scroll-mt-24 reveal"
+>
+
+
+  <h2 class="font-display text-3xl sm:text-4xl font-bold mb-12">
+    Experience
+  </h2>
+
+
+  <div class="glass p-10">
+
+    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+
+      <h3 class="font-display text-xl font-semibold">
+        Freelance Graphic Designer & Video Editor
+      </h3>
+
+
+      <span class="font-mono text-xs accent-text">
+        Remote · Freelance
+      </span>
+
+    </div>
+
+
+    <p class="text-slate-400 leading-relaxed">
+
+      Worked remotely on creative digital projects including graphic design and video editing, while developing practical experience in delivering client-focused digital content.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     WORKFLOW
+========================================== -->
+
+<section
+  id="workflow"
+  class="max-w-7xl mx-auto px-6 py-24 scroll-mt-24 reveal"
+>
+
+  <h2 class="font-display text-3xl sm:text-4xl font-bold mb-12">
+    My Workflow
+  </h2>
+
+
+  <div class="grid md:grid-cols-4 gap-6">
+
+
+    <div class="glass p-6">
+
+      <span class="font-display text-4xl font-bold primary-text">
+        01
+      </span>
+
+
+      <h3 class="font-display text-lg font-semibold mt-4 mb-2">
+        Understand
+      </h3>
+
+
+      <p class="text-slate-400 text-sm leading-relaxed">
+
+        Understand the problem, requirements, and the real goal behind the project.
+
+      </p>
+
+    </div>
+
+
+    <div class="glass p-6">
+
+      <span class="font-display text-4xl font-bold primary-text">
+        02
+      </span>
+
+
+      <h3 class="font-display text-lg font-semibold mt-4 mb-2">
+        Explore
+      </h3>
+
+
+      <p class="text-slate-400 text-sm leading-relaxed">
+
+        Explore data, ideas, and possible solutions before building.
+
+      </p>
+
+    </div>
+
+
+    <div class="glass p-6">
+
+      <span class="font-display text-4xl font-bold primary-text">
+        03
+      </span>
+
+
+      <h3 class="font-display text-lg font-semibold mt-4 mb-2">
+        Build
+      </h3>
+
+
+      <p class="text-slate-400 text-sm leading-relaxed">
+
+        Build practical and reliable solutions using the right tools.
+
+      </p>
+
+    </div>
+
+
+    <div class="glass p-6">
+
+      <span class="font-display text-4xl font-bold primary-text">
+        04
+      </span>
+
+
+      <h3 class="font-display text-lg font-semibold mt-4 mb-2">
+        Improve
+      </h3>
+
+
+      <p class="text-slate-400 text-sm leading-relaxed">
+
+        Test, improve, and communicate the final result clearly.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT
+========================================== -->
+
+<footer
+  id="contact"
+  class="max-w-7xl mx-auto px-6 py-24 scroll-mt-24 reveal"
+>
+
+  <div class="glass p-10 text-center mb-12">
+
+    <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">
+      Let's Connect
+    </h2>
+
+
+    <p class="text-slate-400 max-w-xl mx-auto mb-8">
+
+      Open to opportunities, internships, freelance projects, and collaborations.
+
+    </p>
+
+
+    <div class="flex flex-wrap justify-center gap-4">
+
+
+      <a
+        href="mailto:esraaaymanelhofy@gmail.com"
+        class="btn-primary font-semibold px-6 py-3 rounded-lg text-sm"
+      >
+        Email Me
+      </a>
+
+
+      <a
+        href="https://www.linkedin.com/in/esraa-elhofy-5b2a3b344/"
+        target="_blank"
+        rel="noopener"
+        class="btn-ghost font-semibold px-6 py-3 rounded-lg text-sm"
+      >
+        LinkedIn
+      </a>
+
+
+      <a
+        href="https://github.com/Esraaayman425"
+        target="_blank"
+        rel="noopener"
+        class="btn-ghost font-semibold px-6 py-3 rounded-lg text-sm"
+      >
+        GitHub
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <p class="text-center text-slate-500 text-sm font-mono">
+
+    © 2026 Esraa Ayman. All rights reserved.
+
+  </p>
+
+</footer>
+```
+
+  </main>
+
+  <!-- =========================================
+       PROJECT MODAL
+  ========================================== -->
+
+  <div
+    id="projectModal"
+    class="modal fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center px-6"
+  >
+
+```
+<div
+  class="modal-content glass max-w-lg w-full p-8 relative"
+>
+
+  <button
+    id="closeModal"
+    class="absolute top-4 right-5 text-slate-400 hover:text-accent text-2xl"
+  >
+    ×
+  </button>
+
+
+  <p class="eyebrow mb-3">
+    project.details
+  </p>
+
+
+  <h2
+    id="modalTitle"
+    class="font-display text-2xl font-bold mb-4"
+  ></h2>
+
+
+  <p
+    id="modalDescription"
+    class="text-slate-400 leading-relaxed mb-6"
+  ></p>
+
+
+  <div>
+
+    <p class="text-xs font-mono accent-text mb-2">
+      TOOLS
+    </p>
+
+
+    <p
+      id="modalTools"
+      class="text-primary font-mono text-sm"
+    ></p>
+
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
+
+  <script>
+
+
+    /* =========================================
+       PARTICLES - FULLY INTERACTIVE
+    ========================================== */
+
+    particlesJS("particles-js", {
+
+      particles: {
+
+        number: {
+          value: 85,
+
+          density: {
+            enable: true,
+
+            value_area: 800
+          }
+        },
+
+
+        color: {
+          value: [
+            "#0D9488",
+            "#F59E0B",
+            "#2DD4BF"
+          ]
+        },
+
+
+        shape: {
+          type: "circle"
+        },
+
+
+        opacity: {
+          value: 0.55,
+
+          random: true
+        },
+
+
+        size: {
+          value: 3,
+
+          random: true
+        },
+
+
+        line_linked: {
+
+          enable: true,
+
+          distance: 150,
+
+          color: "#0D9488",
+
+          opacity: 0.4,
+
+          width: 1
+
+        },
+
+
+        move: {
+
+          enable: true,
+
+          speed: 2,
+
+          direction: "none",
+
+          random: false,
+
+          straight: false,
+
+          out_mode: "out",
+
+          bounce: false
+
+        }
+
+      },
+
+
+      interactivity: {
+
+        detect_on: "canvas",
+
+
+        events: {
+
+          onhover: {
+
+            enable: true,
+
+            mode: "repulse"
+
+          },
+
+
+          onclick: {
+
+            enable: true,
+
+            mode: "push"
+
+          },
+
+
+          resize: true
+
+        },
+
+
+        modes: {
+
+          repulse: {
+
+            distance: 140,
+
+            duration: 0.4
+
+          },
+
+
+          push: {
+
+            particles_nb: 4
+
+          }
+
+        }
+
+      },
+
+
+      retina_detect: true
+
+    });
+
+
+    /* =========================================
+       MOBILE MENU
+    ========================================== */
+
+    const menuBtn = document.getElementById("menuBtn");
+
+    const mobileMenu = document.getElementById("mobileMenu");
+
+
+    menuBtn.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("hidden");
+
+    });
+
+
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        mobileMenu.classList.add("hidden");
+
+      });
+
+    });
+
+
+    /* =========================================
+       SCROLL REVEAL
+    ========================================== */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+
+    const revealObserver = new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: 0.12
+      }
+
+    );
+
+
+    revealElements.forEach(element => {
+
+      revealObserver.observe(element);
+
+    });
+
+
+    /* =========================================
+       ACTIVE NAVIGATION
+    ========================================== */
+
+    const sections = document.querySelectorAll(
+      "section[id], footer[id]"
+    );
+
+
+    const navLinks = document.querySelectorAll(".nav-link");
+
+
+    window.addEventListener("scroll", () => {
+
+      let current = "";
+
+
+      sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 180;
+
+
+        if (window.scrollY >= sectionTop) {
+
+          current = section.getAttribute("id");
+
+        }
+
+      });
+
+
+      navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+
+        if (
+          link.getAttribute("href") === "#" + current
+        ) {
+
+          link.classList.add("active");
+
+        }
+
+      });
+
+    });
+
+
+    /* =========================================
+       PROJECT MODAL
+    ========================================== */
+
+    const modal = document.getElementById("projectModal");
+
+    const closeModal = document.getElementById("closeModal");
+
+    const modalTitle = document.getElementById("modalTitle");
+
+    const modalDescription = document.getElementById("modalDescription");
+
+    const modalTools = document.getElementById("modalTools");
+
+
+    document.querySelectorAll(".details-btn").forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const card = button.closest(".project-card");
+
+
+        modalTitle.textContent = card.dataset.title;
+
+
+        modalDescription.textContent =
+          card.dataset.description;
+
+
+        modalTools.textContent =
+          card.dataset.tools;
+
+
+        modal.classList.add("active");
+
+      });
+
+    });
+
+
+    closeModal.addEventListener("click", () => {
+
+      modal.classList.remove("active");
+
+    });
+
+
+    modal.addEventListener("click", event => {
+
+      if (event.target === modal) {
+
+        modal.classList.remove("active");
+
+      }
+
+    });
+
+
+    document.addEventListener("keydown", event => {
+
+      if (event.key === "Escape") {
+
+        modal.classList.remove("active");
+
+      }
+
+    });
+
+
+  </script>
+
+</body>
+
+</html>
